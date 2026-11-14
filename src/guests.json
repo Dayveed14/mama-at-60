@@ -1,0 +1,66 @@
+[
+  {
+    "id": "001",
+    "name": "David Aigbovbiosa",
+    "table": "04"
+  },
+  {
+    "id": "002",
+    "name": "Sarah Williams",
+    "table": "02"
+  },
+  {
+    "id": "003",
+    "name": "Chief (Mrs) Grace Okafor",
+    "table": "08"
+  },
+  {
+    "id": "004",
+    "name": "Dr. Adebayo Ogunleye",
+    "table": "01",
+    "aliases": "Uncle Bayo"
+  },
+  {
+    "id": "005",
+    "name": "Mr & Mrs Tunde Bakare",
+    "table": "05"
+  },
+  {
+    "id": "006",
+    "name": "Engr. Chinedu Eze",
+    "table": "07"
+  },
+  {
+    "id": "007",
+    "name": "Funmilayo Adeyemi",
+    "table": "03",
+    "note": "Daughter of the celebrant"
+  },
+  {
+    "id": "008",
+    "name": "Funmilayo Adeyemi",
+    "table": "06",
+    "note": "Family friend, Lagos"
+  },
+  {
+    "id": "009",
+    "name": "Alhaji Musa Ibrahim",
+    "table": "High Table"
+  },
+  {
+    "id": "010",
+    "name": "Pastor John Oladipo",
+    "table": "High Table"
+  },
+  {
+    "id": "011",
+    "name": "Mrs Blessing Okonkwo",
+    "table": "09",
+    "aliases": "Auntie Blessing"
+  },
+  {
+    "id": "012",
+    "name": "Prof. Kemi Adewale",
+    "table": "10"
+  }
+]
