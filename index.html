@@ -4,20 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#7B1E3A" />
-    <meta name="description" content="Find your table at the celebration." />
-    <title>Find Your Table</title>
+    <meta name="description" content="Your table assignment for Ogundana Elizabeth Abosede's 60th birthday celebration." />
+    <title>60th Birthday Celebration</title>
   </head>
   <body>
     <div class="edge" aria-hidden="true"></div>
-
-    <!-- A: Celebration header -->
     <header class="hero">
       <div class="petals" id="petals" aria-hidden="true"></div>
       <div class="hero-inner">
         <div class="portrait-wrap reveal">
-          <div class="portrait" id="portrait">
-            <span class="medallion" id="medallion" aria-hidden="true">60</span>
-          </div>
+          <div class="portrait" id="portrait"><span class="medallion" id="medallion" aria-hidden="true">60</span></div>
         </div>
         <p class="ornament reveal" aria-hidden="true"><span></span>✦<span></span></p>
         <h1 id="celebrant-name" class="reveal"></h1>
@@ -28,84 +24,27 @@
     </header>
 
     <main class="page">
-      <!-- B: Guest search -->
-      <section class="search-card reveal" aria-labelledby="find-heading">
-        <h2 id="find-heading">Find Your Table</h2>
-        <p class="hint">Enter your name in the box below.</p>
-
-        <label for="search" class="visually-hidden">Your name</label>
-        <div class="search-box">
-          <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="10.5" cy="10.5" r="6.5" />
-            <line x1="15.5" y1="15.5" x2="21" y2="21" />
-          </svg>
-          <input
-            id="search"
-            type="search"
-            placeholder="Type your full name here..."
-            autocomplete="off"
-            autocorrect="off"
-            autocapitalize="words"
-            spellcheck="false"
-            enterkeyhint="search"
-          />
-        </div>
-        <button type="button" class="clear-btn" id="clear" hidden>Clear search</button>
+      <section class="table-card reveal" id="table-card" aria-live="polite">
+        <p class="table-eyebrow" id="table-eyebrow">YOUR TABLE ASSIGNMENT</p>
+        <h2 class="assigned-table" id="assigned-table">—</h2>
+        <p class="table-instruction" id="table-instruction">Please proceed to your assigned table.</p>
       </section>
-
-      <!-- C & D: Results / no result -->
-      <section id="results" class="results" aria-live="polite"></section>
-
-      <!-- E: Full guest list -->
-      <section class="directory reveal-on-scroll" id="guest-list" aria-labelledby="list-heading">
-        <h2 id="list-heading">Guest List</h2>
-        <p class="hint">Browse everyone, or filter the list below.</p>
-
-        <div class="dir-tools">
-          <label for="dir-filter" class="visually-hidden">Filter the guest list</label>
-          <div class="search-box small">
-            <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="10.5" cy="10.5" r="6.5" />
-              <line x1="15.5" y1="15.5" x2="21" y2="21" />
-            </svg>
-            <input
-              id="dir-filter"
-              type="search"
-              placeholder="Filter by name or table..."
-              autocomplete="off"
-              autocorrect="off"
-              spellcheck="false"
-            />
-          </div>
-          <div class="sort-toggle" role="group" aria-label="Sort guest list">
-            <button type="button" class="sort-btn" data-sort="name" aria-pressed="true">A–Z</button>
-            <button type="button" class="sort-btn" data-sort="table" aria-pressed="false">By table</button>
-          </div>
-        </div>
-
-        <p class="dir-count" id="dir-count" aria-live="polite"></p>
-
-        <div class="table-wrap">
-          <table class="guest-table">
-            <thead>
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col" class="col-table">Table</th>
-              </tr>
-            </thead>
-            <tbody id="dir-body"></tbody>
-          </table>
-        </div>
+      <section class="table-card invalid-card reveal" id="invalid-card" hidden>
+        <h2>Table link not recognised</h2>
+        <p>Please check the QR code or speak to an usher at the entrance for assistance.</p>
+      </section>
+      <section class="table-card welcome-card reveal" id="welcome-card" hidden>
+        <h2>We are delighted to celebrate with you!</h2>
+        <p>Please scan the personal table QR code shared with you to view your table assignment.</p>
+        <p class="welcome-note">If you need help, kindly speak to an usher at the entrance.</p>
       </section>
     </main>
 
-    <!-- F: Footer -->
     <footer class="footer">
       <p class="ornament small" aria-hidden="true"><span></span>✦<span></span></p>
       <p id="footer-message"></p>
       <p id="footer-meta" class="footer-meta" hidden></p>
     </footer>
-
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

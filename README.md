@@ -1,53 +1,56 @@
-# 60th Birthday — Find Your Table
+# Mama at 60 — Table QR Assignments
 
-A one-page site for Ogundana Elizabeth Abosede's 60th birthday. Guests scan the QR code on the banner, type their name and see their table. A full guest list you can filter and sort sits below the search.
-There is no backend: the guest list is built into the site when it is deployed.
+A lightweight, static Vite website for Ogundana Elizabeth Abosede's 60th birthday. Each guest receives the QR code for their assigned table. Scanning it opens a page that displays only that table number.
 
-## Before the event — what to fill in
+## Guest experience
 
-| What | Where |
-|---|---|
-| Celebrant's name, date, venue, footer sign-off | `src/config.js` |
-| Celebrant's portrait | Put the photo in `public/` (e.g. `public/celebrant.jpg`) and set `photo: '/celebrant.jpg'` in `src/config.js`. Square-ish photos work best; keep it under ~300 KB. Until a photo is added, a "60" medallion shows instead. |
-| Guest list | `data/guests.xlsx` |
+- `/` shows a general birthday welcome and asks guests to scan the QR code shared with them.
+- `/table/01` through `/table/30` show the corresponding table assignment directly.
+- Invalid table paths show a help message.
+- There is no guest search, guest directory, guest-name data, database, or backend in the deployed application.
 
-## The guest list (Excel)
+## Configure the event
 
-`data/guests.xlsx` has these columns in the first row:
-
-| Column | Required | Example |
-|---|---|---|
-| `name` | yes | `Chief (Mrs) Grace Okafor` |
-| `table` | yes | `04`, `12`, or `High Table` |
-| `note` | no | `Family friend, Lagos` — shown under the name; use it when two guests share a name |
-| `aliases` | no | `Auntie Bisi` — other names a guest might type |
-
-- Titles (Chief, Mrs, Dr, Engr, Alhaji, Pastor…) are ignored when searching, so "grace okafor" finds "Chief (Mrs) Grace Okafor".
-- Single-digit tables become two digits (`4` → `04`).
-- Couples can share one row, e.g. `Mr & Mrs Tunde Bakare`. Searching "bakare" or "tunde" finds it.
-
-When the site builds, the spreadsheet is converted into `src/guests.json`. The build also lists any rows with missing details, and any repeated names that have no note. Prefer JSON? Delete `data/guests.xlsx` and edit `src/guests.json` directly.
+Edit `src/config.js` to set the celebrant's name, event date, venue, welcome message, footer message, and optional portrait. To add a portrait, put the approved image in `public/` and set `photo` to its public path, for example `/celebrant.jpg`.
 
 ## Run locally
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173
+npm run dev
 ```
 
-## Deploy
+Test a table directly at `http://localhost:5173/table/10`.
 
-**Vercel** or **Netlify**: push this folder to a GitHub repo and import it. Both detect Vite automatically.
+## Build and deploy
 
-- Build command: `npm run build`
-- Output directory: `dist`
+```bash
+npm run build
+npm run preview
+```
 
-To update the guest list later, edit `data/guests.xlsx` and push. The site redeploys in about a minute.
+Deploy the `dist` folder to Vercel or Netlify. The included `vercel.json` and `public/_redirects` configure SPA route fallback so direct visits to `/table/NN` work when hosted on those platforms.
 
-## Notes
+## Generate the 30 QR codes
 
-- Animations (floating petals, a confetti burst when a guest is found, cards that pop in) switch off automatically on phones set to "reduce motion".
-- Colours are in the `:root` block at the top of `src/style.css`.
-- Fonts are bundled with the site (no Google Fonts calls), and the page totals about 130 KB, so it loads on weak venue signal.
-- Anyone with the link can search the list. Don't put phone numbers or other private details in it.
-- Only make the QR code once the final URL is settled (a custom domain is safest), and test the printed QR code on a few phones.
+First deploy the site and decide its final HTTPS domain. Then install the QR-code generator dependency:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+Generate all codes using the final deployed origin:
+
+```bash
+python scripts/generate_qr_codes.py --base-url https://YOUR-FINAL-DOMAIN
+```
+
+This creates `table-qr-codes/table-01.png` through `table-qr-codes/table-30.png`. Each image points to its matching `/table/NN` page. You can choose another output folder with `--output`.
+
+**Important:** generate the QR images only after the final domain is confirmed. Test each code with a phone before sending it to guests or printing it. Send each guest only the QR image for their assigned table.
+
+## Privacy and security notes
+
+The guest list is not part of this website or its production build. Keep the organiser's Excel guest list in a private location (not in the public GitHub repository or the deployed site's public folder). The original project contained `data/guests.xlsx` and `src/guests.json`; these guest-data files and the old conversion/search scripts have been left out of this revised project to avoid publishing the list accidentally.
+
+These table URLs are intentionally shareable and are not authentication: anyone who receives or guesses `/table/10` can view Table 10. This design prevents the site from exposing the complete guest directory; it does not prevent forwarding or guessing an individual table link.

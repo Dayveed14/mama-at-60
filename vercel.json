@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/table/:number", "destination": "/index.html" }
+  ]
+}
