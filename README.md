@@ -1,11 +1,11 @@
 # Mama at 60 — Table QR Assignments
 
-A lightweight, static Vite website for Ogundana Elizabeth Abosede's 60th birthday. Each guest receives the QR code for their assigned table. Scanning it opens a page that displays only that table number.
+A lightweight, static Vite website for Ogundana Elizabeth Abosede's 60th birthday. Each guest receives the QR code for their assigned table. Scanning it opens a page that displays that table number and its table label.
 
 ## Guest experience
 
 - `/` shows a general birthday welcome and asks guests to scan the QR code shared with them.
-- `/table/01` through `/table/30` show the corresponding table assignment directly.
+- `/table/01` through `/table/30` show both the table number and its assigned table name directly.
 - Invalid table paths show a help message.
 - There is no guest search, guest directory, guest-name data, database, or backend in the deployed application.
 
@@ -42,10 +42,10 @@ python -m pip install -r requirements.txt
 Generate all codes using the final deployed origin:
 
 ```bash
-python scripts/generate_qr_codes.py --base-url https://YOUR-FINAL-DOMAIN
+python scripts/generate_qr_codes.py --base-url https://mama-at-60.vercel.app
 ```
 
-This creates `table-qr-codes/table-01.png` through `table-qr-codes/table-30.png`. Each image points to its matching `/table/NN` page. You can choose another output folder with `--output`.
+This creates 30 labelled PNG files (for example, `table-01-lizzy.png` and `table-15-congress-court-residents.png`). Each QR points to its matching `/table/NN` page, and each image has the table number and table name printed below the QR code. The table labels are maintained in `src/main.js` and in the QR generator script; keep both lists in sync if labels change. You can choose another output folder with `--output`.
 
 **Important:** generate the QR images only after the final domain is confirmed. Test each code with a phone before sending it to guests or printing it. Send each guest only the QR image for their assigned table.
 

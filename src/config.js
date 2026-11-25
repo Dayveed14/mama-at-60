@@ -16,13 +16,13 @@ export default {
   photo: '/60.png',
 
   // Optional — shown under the milestone and in the footer, e.g. "Saturday, 12 December 2026".
-  eventDate: 'Saturday, 28th November',
+  eventDate: 'Saturday, November 28th 2026',
 
   // Optional — e.g. "Transcorp Hilton, Abuja".
   venue: '',
 
   welcome:
-    'Welcome to Lizzy at 60 ',
+    'Welcome to Lizzy at 60!!!',
 
   footerMessage: 'Thank you for celebrating this beautiful milestone with us.',
 
