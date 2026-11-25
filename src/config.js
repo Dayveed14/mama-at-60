@@ -13,17 +13,16 @@ export default {
   // Portrait: put the approved photo in the /public folder
   // (e.g. public/celebrant.jpg) and set this to "/celebrant.jpg".
   // Leave as "" to show a decorative "60" medallion instead.
-  photo: '',
+  photo: '/60.png',
 
   // Optional — shown under the milestone and in the footer, e.g. "Saturday, 12 December 2026".
-  eventDate: '',
+  eventDate: 'Saturday, 28th November',
 
   // Optional — e.g. "Transcorp Hilton, Abuja".
   venue: '',
 
   welcome:
-    'Welcome! We are delighted to celebrate this special occasion with you. ' +
-    'Please find your name below to discover your assigned table.',
+    'Welcome to Lizzy at 60 ',
 
   footerMessage: 'Thank you for celebrating this beautiful milestone with us.',
 

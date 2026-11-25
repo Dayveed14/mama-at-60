@@ -80,7 +80,7 @@ body {
   position: relative;
   overflow: hidden;
   text-align: center;
-  padding: 40px 0 34px;
+  padding: 10px 0;
   background:
     radial-gradient(120% 70% at 50% 0%, var(--blush) 0%, rgba(253, 232, 238, 0) 70%),
     var(--bg);
@@ -153,8 +153,8 @@ body {
 
 .portrait-wrap {
   position: relative;
-  width: 168px;
-  height: 168px;
+  width: 300px;
+  height: 300px;
   margin: 0 auto 20px;
 }
 
@@ -277,8 +277,9 @@ h1 {
 
 .welcome {
   max-width: 34em;
-  margin: 18px auto 0;
-  font-size: 18px;
+  margin: auto 0;
+  font-size: 58px;
+  font-family: var(--serif);
 }
 
 /* Page-load entrance, staggered */
@@ -820,11 +821,11 @@ input[type='search']:focus {
 
 @media (min-width: 640px) {
   .hero {
-    padding-top: 60px;
+    padding-top: 20px;
   }
   .portrait-wrap {
-    width: 190px;
-    height: 190px;
+    width: 380px;
+    height: 380px;
   }
   .search-card,
   .directory {
